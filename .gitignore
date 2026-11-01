@@ -1,0 +1,52 @@
+# ==========================================
+# Archivos de Entorno y Secretos
+# ==========================================
+# Ignora archivos .env en la raíz y en cualquier subcarpeta de microservicio
+**/.env
+**/.env.local
+**/.env.production
+**/.env.development
+
+# NOTA: Los archivos .env.example SÍ se subirán automáticamente.
+
+# ==========================================
+# Archivos de Compilación Java / Maven
+# ==========================================
+**/target/
+**/*.class
+**/*.jar
+**/*.war
+**/*.ear
+**/*.zip
+**/*.tar.gz
+**/*.rar
+
+# Wrapper de Maven (descomentar si NO deseas subir mvnw binario)
+# **/.mvn/wrapper/maven-wrapper.jar
+
+# ==========================================
+# Entornos de Desarrollo e IDEs
+# ==========================================
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# Eclipse
+.settings/
+.project
+.classpath
+.factorypath
+
+# OS / Sistema Operativo
+.DS_Store
+Thumbs.db
+
+# Log files
+**/logs/
+**/*.log
