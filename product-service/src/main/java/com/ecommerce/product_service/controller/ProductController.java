@@ -3,6 +3,7 @@ package com.ecommerce.product_service.controller;
 import com.ecommerce.product_service.dto.ProductRequestDTO;
 import com.ecommerce.product_service.dto.ProductResponseDTO;
 import com.ecommerce.product_service.service.ProductService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.apache.coyote.Response;
 import org.springframework.http.HttpStatus;
@@ -19,7 +20,7 @@ public class ProductController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ProductResponseDTO createProduct(@RequestBody ProductRequestDTO productRequestDTO){
+    public ProductResponseDTO createProduct(@RequestBody @Valid ProductRequestDTO productRequestDTO){
         return productService.createProduct(productRequestDTO);
     }
 
@@ -43,8 +44,12 @@ public class ProductController {
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public ProductResponseDTO updateProductById(@PathVariable("id") String id, @RequestBody ProductRequestDTO productRequestDTO) {
+    public ProductResponseDTO updateProductById(@PathVariable("id") String id, @RequestBody @Valid ProductRequestDTO productRequestDTO) {
         return productService.updateProductById(id, productRequestDTO);
     }
 
+    @GetMapping("/test-fail")
+    public void testFail() {
+        throw  new RuntimeException("El servidor se a caido (simulacro)");
+    }
 }
