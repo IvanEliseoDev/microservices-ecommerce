@@ -13,13 +13,11 @@ import org.mapstruct.Mapping;
 public interface OrderMapper {
 
     // Mapeamos explícitamente la lista porque los nombres no coinciden
-    // @Mapping(source = "orderLineItemsDtoList", target="orderLineItemsList")
+    @Mapping(source = "orderLineItemsList", target = "orderLineItems")
     Order toOrder(OrderRequestDTO orderRequestDTO);
 
     OrderLineItems toOrderLineItems(OrderLineItemsRequestDTO orderLineItemsRequestDTO);
 
-    // Mapeamos explícitamente la lista de vuelta
-    // @Mapping(source = "orderLineItemsList", target = "orderLineItemsDtoList")
     OrderResponseDTO toOrderResponse(Order order);
 
     // Método auxiliar para la respuesta

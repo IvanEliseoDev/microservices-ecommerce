@@ -7,7 +7,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 @Data
@@ -16,5 +15,5 @@ public class OrderRequestDTO {
 
     @NotEmpty(message = "La orden debe contener almenos un item")
     @Valid
-    private List<OrderLineItems> orderLineItemsList;
+    private List<OrderLineItemsRequestDTO> orderLineItemsList;
 }
